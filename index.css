@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #eee;
+  color: #555;
+  position: relative;
+}
+
+html {
+  font-size: 60%;
+}
+
+.number {
+  font-size: 15rem;
+}
+
+button {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 7px;
+  border: none;
+  display: inline-block;
+  background-color: #0634f0;
+  padding: 1.5rem 2rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
