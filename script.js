@@ -2,23 +2,19 @@
 
 let url =
   "https://api.sheety.co/ebea7191455d4cbd3ebd1ab58d71433d/octaFx/12+Tickets";
-fetch(url)
-  .then((response) => response.json())
-  .then((json) => {
-    // Do something with the data
-    // Json is an array of objects but i need them to be one array
-  });
 
 async function getTicketNumber() {
   const res = await fetch(url);
   const data = await res.json();
-  tickets = data["12+Tickets"];
+  const tickets = data["12+Tickets"];
 
   return tickets.map((ticket) => ticket.ticketNumber);
 }
 
 const numEl = document.querySelector(".number");
 const btnEl = document.querySelector(".btn");
+const resetEl = document.querySelector(".reset");
+
 const wait = (seconds) => {
   return new Promise(function (resolve, reject) {
     setTimeout(resolve, seconds * 1000);
@@ -37,9 +33,16 @@ async function Lottery() {
     // Set interval is an
 
     await wait(0.1);
-    numEl.innerHTML = ticketNumbers[randNum];
+    if (ticketNumbers) {
+      numEl.innerHTML = ticketNumbers[randNum];
+    }
+
     //   console.log(randNum[arr]);
   }
 }
 
 btnEl.addEventListener("click", Lottery);
+
+resetEl.addEventListener("click", () => {
+  numEl.innerHTML = "_";
+});
