@@ -27,12 +27,16 @@ let ticketNumbers = "";
   ticketNumbers = await getTicketNumber();
 })();
 
+let reset = false;
 async function Lottery() {
   for (let i = 0; i < 30; i++) {
     // Generate a random number from 0 to length of arr
     const randNum = Math.floor(Math.random() * ticketNumbers.length);
     // Add a one second delay
     // Set interval is an
+
+    console.log(reset);
+    if (reset) return;
 
     await wait(0.1);
     if (ticketNumbers) {
@@ -43,8 +47,12 @@ async function Lottery() {
   }
 }
 
-btnEl.addEventListener("click", Lottery);
+btnEl.addEventListener("click", () => {
+  reset = false;
+  Lottery();
+});
 
 resetEl.addEventListener("click", () => {
+  reset = true;
   numEl.innerHTML = "_";
 });
