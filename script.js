@@ -8,6 +8,8 @@ async function getTicketNumber() {
   const data = await res.json();
   const tickets = data["1StLevel12Tickets+3+tickets"];
 
+  console.log(tickets);
+
   return tickets.map((ticket) => ticket.ticketNumber);
 }
 
