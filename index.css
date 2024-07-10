@@ -6,7 +6,7 @@
 }
 
 body {
-  height: 50vh;
+  height: 90vh;
   text-align: center;
   gap: 2rem;
   background-color: #eee;
@@ -68,4 +68,8 @@ button {
 .reset {
   border: 2px solid #0634f0;
   color: #000;
+}
+
+.btn-box {
+  text-align: center;
 }
