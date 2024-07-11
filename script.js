@@ -1,12 +1,14 @@
 // I need it to pick and display a random number starting with 10 iterations
 
 let url =
-  "https://api.sheety.co/ebea7191455d4cbd3ebd1ab58d71433d/octaFxV2/2NdLevel3+tickets";
+  "https://api.sheety.co/ebea7191455d4cbd3ebd1ab58d71433d/octaFxV2/1StLevel12Tickets+3+tickets";
 
 async function getTicketNumber() {
   const res = await fetch(url);
   const data = await res.json();
-  const tickets = data["2NdLevel3+tickets"];
+  const tickets = data["1StLevel12Tickets+3+tickets"];
+
+  console.log(tickets);
 
   return tickets.map((ticket) => ticket.ticketNumber);
 }
